@@ -1,19 +1,5 @@
 package com.csc205.project2.shapes;
 
-/**
- * AI GENERATION DOCUMENTATION
- * ===========================
- * AI Tool Used: OpenAI GPT-5
- * Generation Date: 2025-09-29
- *
- * Original Prompt:
- * "Step 2: Create Five Concrete Shape Classes [...] Cylinder - Properties: radius, height"
- *
- * Formula Verification:
- * - Volume = π * r^2 * h (Source: Wolfram MathWorld)
- * - Surface Area = 2πr(h + r) (Source: Wolfram MathWorld)
- */
-
 public class Cylinder extends Shape3D {
 
     private double radius;
@@ -34,8 +20,8 @@ public class Cylinder extends Shape3D {
     }
 
     public void setRadius(double radius) {
-        if (radius <= 0) {
-            throw new IllegalArgumentException("Radius must be positive");
+        if (radius < 0) {
+            throw new IllegalArgumentException("Radius cannot be negative");
         }
         this.radius = radius;
     }
@@ -46,7 +32,7 @@ public class Cylinder extends Shape3D {
 
     public void setHeight(double height) {
         if (height < 0) {
-            throw new IllegalArgumentException("Height must be positive");
+            throw new IllegalArgumentException("Height cannot be negative");
         }
         this.height = height;
     }
@@ -64,9 +50,8 @@ public class Cylinder extends Shape3D {
     @Override
     public String toString() {
         return String.format(
-                "Cylinder [Color: %s, Radius: %.2f, Surface Area: %.2f, Volume: %.2f]",
+                "Cylinder [Color: %s, Radius: %.2f, Height: %.2f, Surface Area: %.2f, Volume: %.2f]",
                 getColor(), radius, height, getSurfaceArea(), getVolume()
-
         );
     }
 }

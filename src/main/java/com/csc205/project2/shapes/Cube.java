@@ -1,19 +1,5 @@
 package com.csc205.project2.shapes;
 
-/**
- * AI GENERATION DOCUMENTATION
- * ===========================
- * AI Tool Used: OpenAI GPT-5
- * Generation Date: 2025-09-29
- *
- * Original Prompt:
- * "Step 2: Create Five Concrete Shape Classes [...] Cube - Properties: sideLength"
- *
- * Formula Verification:
- * - Volume = a^3 (Source: Wolfram MathWorld)
- * - Surface Area = 6 * a^2 (Source: Wolfram MathWorld)
- */
-
 public class Cube extends Shape3D {
 
     private double sideLength;
@@ -24,17 +10,18 @@ public class Cube extends Shape3D {
     }
 
     public Cube() {
-        this("Uncolored",1.0);
+        this("Uncolored", 1.0);
     }
+
     public double getSideLength() {
         return sideLength;
     }
 
-    public void setSideLength(double sidelength) {
-        if (sidelength <= 0) {
-            throw new IllegalArgumentException("Side length must be positive");
+    public void setSideLength(double sideLength) {
+        if (sideLength < 0) { // ✅ allow 0
+            throw new IllegalArgumentException("Side length cannot be negative");
         }
-        this.sideLength = sidelength;
+        this.sideLength = sideLength;
     }
 
     @Override
@@ -43,7 +30,7 @@ public class Cube extends Shape3D {
     }
 
     @Override
-    protected double calculateVolume () {
+    protected double calculateVolume() {
         return Math.pow(sideLength, 3);
     }
 
@@ -51,7 +38,7 @@ public class Cube extends Shape3D {
     public String toString() {
         return String.format(
                 "Cube [Color: %s, Side Length: %.2f, Surface Area: %.2f, Volume: %.2f]",
-                getColor(),sideLength, getSurfaceArea(), getVolume()
+                getColor(), sideLength, getSurfaceArea(), getVolume()
         );
     }
 }

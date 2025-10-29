@@ -1,20 +1,5 @@
 package com.csc205.project2.shapes;
 
-
-/**
- * AI GENERATION DOCUMENTATION
- * ===========================
- * AI Tool Used: OpenAI GPT-5
- * Generation Date: 2025-09-29
- *
- * Original Prompt:
- * "Step 2: Create Five Concrete Shape Classes [...] RectangularPrism - Properties: length, width, height"
- *
- * Formula Verification:
- * - Volume = l * w * h (Source: Wolfram MathWorld)
- * - Surface Area = 2(lw + lh + wh) (Source: Wolfram MathWorld)
- */
-
 public class RectangularPrism extends Shape3D {
 
     private double length;
@@ -22,7 +7,7 @@ public class RectangularPrism extends Shape3D {
     private double height;
 
     public RectangularPrism(String color, double length, double width, double height) {
-        super("Rectanguilar Prism", color);
+        super("Rectangular Prism", color);
         setLength(length);
         setWidth(width);
         setHeight(height);
@@ -37,8 +22,8 @@ public class RectangularPrism extends Shape3D {
     }
 
     public void setLength(double length) {
-        if (length <= 0) {
-            throw new IllegalArgumentException("Length must be positive");
+        if (length < 0) {
+            throw new IllegalArgumentException("Length cannot be negative");
         }
         this.length = length;
     }
@@ -48,8 +33,8 @@ public class RectangularPrism extends Shape3D {
     }
 
     public void setWidth(double width) {
-        if (width <= 0) {
-            throw new IllegalArgumentException("Width must be positive");
+        if (width < 0) {
+            throw new IllegalArgumentException("Width cannot be negative");
         }
         this.width = width;
     }
@@ -59,8 +44,8 @@ public class RectangularPrism extends Shape3D {
     }
 
     public void setHeight(double height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException("Height must be positive");
+        if (height < 0) {
+            throw new IllegalArgumentException("Height cannot be negative");
         }
         this.height = height;
     }
@@ -70,6 +55,7 @@ public class RectangularPrism extends Shape3D {
         return 2 * (length * width + length * height + width * height);
     }
 
+    @Override
     protected double calculateVolume() {
         return length * width * height;
     }
@@ -77,7 +63,7 @@ public class RectangularPrism extends Shape3D {
     @Override
     public String toString() {
         return String.format(
-                "Retangular Prism [Color: %s, Radius: %.2f, Surface Area: %.2f, Volume: %.2f]",
+                "Rectangular Prism [Color: %s, Length: %.2f, Width: %.2f, Height: %.2f, Surface Area: %.2f, Volume: %.2f]",
                 getColor(), length, width, height, getSurfaceArea(), getVolume()
         );
     }
