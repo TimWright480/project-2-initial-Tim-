@@ -65,8 +65,8 @@ public class Pyramid extends Shape3D {
     @Override
     public String toString () {
         return String.format(
-        "Pyramid [Color: %s, Base Length: %.2f, Height: %.2f, Surface Area: %.2f, Volume: %.2f]",
-        getColor(), baseLength, height, getSurfaceArea(), getVolume()
+                "Pyramid [Color: %s, Base Length: %.2f, Height: %.2f, Surface Area: %.2f, Volume: %.2f]",
+                getColor(), baseLength, height, getSurfaceArea(), getVolume()
         );
     }
 }
